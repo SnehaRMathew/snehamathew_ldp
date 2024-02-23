@@ -1,2 +1,1 @@
-# sneharmathew_ldp
-sneharmathew_ldp
+Welcome to Sneha's world of coding
