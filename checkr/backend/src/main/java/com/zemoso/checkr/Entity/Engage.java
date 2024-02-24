@@ -4,13 +4,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AdverseAction {
+public class Engage {
     private long id;
     private Candidate candidateId;
     private String description;
     private Date date;
     private String status;
-    private AdverseActionNotification notificationId;
+    private String note;
     private HR createdBy;
     private Date createdDate;
     private HR updatedBy;
