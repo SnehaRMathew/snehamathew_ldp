@@ -1,1 +1,1 @@
-Welcome to Sneha's coding world
+Welcome to Sneha's world of coding
