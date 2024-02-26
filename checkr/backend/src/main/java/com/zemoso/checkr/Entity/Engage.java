@@ -1,4 +1,5 @@
 package com.zemoso.checkr.Entity;
+
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
