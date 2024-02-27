@@ -21,8 +21,5 @@ public class HR {
     private String status;
     private String mobile;
     private String address;
-    private HR createdBy;
-    private Date createdDate;
-    private HR updatedBy;
-    private Date updatedDate;
+    
 }
