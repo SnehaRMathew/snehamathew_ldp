@@ -22,12 +22,12 @@
 
 
         <!-- Entity mappings -->
-        <mapping class="com.zemoso.checkr.Entity.AdverseAction"/>
-        <mapping class="com.zemoso.checkr.Entity.AdverseActionNotification"/>
-        <mapping class="com.zemoso.checkr.Entity.Candidate"/>
-        <mapping class="com.zemoso.checkr.Entity.Case"/>
-        <mapping class="com.zemoso.checkr.Entity.Engage"/>
-        <mapping class="com.zemoso.checkr.Entity.HR"/>
+        <mapping class="com.zemoso.checkr.entity.AdverseAction"/>
+        <mapping class="com.zemoso.checkr.entity.AdverseActionNotification"/>
+        <mapping class="com.zemoso.checkr.entity.Candidate"/>
+        <mapping class="com.zemoso.checkr.entity.Case"/>
+        <mapping class="com.zemoso.checkr.entity.Engage"/>
+        <mapping class="com.zemoso.checkr.entity.HR"/>
     </session-factory>
 
 </hibernate-configuration>

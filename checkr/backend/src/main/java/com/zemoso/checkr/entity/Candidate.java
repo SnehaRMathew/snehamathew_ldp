@@ -1,4 +1,4 @@
-package com.zemoso.checkr.Entity;
+package com.zemoso.checkr.entity;
 
 import java.util.Date;
 import lombok.Getter;
@@ -10,17 +10,18 @@ import javax.persistence.GenerationType;
 
 @Getter
 @Setter
-public class HR {
+public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private Date dateOfBirth;
-    private Date dateOfJoining;
+    private Date enrolDate;
     private String email;
     private String status;
     private String mobile;
     private String address;
+    private String location;
     private HR createdBy;
     private Date createdDate;
     private HR updatedBy;

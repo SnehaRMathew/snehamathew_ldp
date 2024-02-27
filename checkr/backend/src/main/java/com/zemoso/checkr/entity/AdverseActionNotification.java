@@ -1,4 +1,4 @@
-package com.zemoso.checkr.Entity;
+package com.zemoso.checkr.entity;
 
 import java.util.Date;
 import lombok.Getter;
@@ -7,21 +7,18 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-
 @Getter
 @Setter
-public class Candidate {
+public class AdverseActionNotification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
-    private Date dateOfBirth;
-    private Date enrolDate;
-    private String email;
+    private HR sender;
+    private Candidate receiver;
+    private String body;
+    private Date preNoticeDate;
+    private Date postNoticeDate;
     private String status;
-    private String mobile;
-    private String address;
-    private String location;
     private HR createdBy;
     private Date createdDate;
     private HR updatedBy;

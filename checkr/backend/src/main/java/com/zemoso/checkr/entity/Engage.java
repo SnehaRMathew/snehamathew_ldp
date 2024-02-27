@@ -1,4 +1,4 @@
-package com.zemoso.checkr.Entity;
+package com.zemoso.checkr.entity;
 
 import java.util.Date;
 import lombok.Getter;
@@ -7,19 +7,19 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-
 @Getter
 @Setter
-public class Case {
+public class Engage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Candidate candidateID; // References Candidate ID
+    private Candidate candidateId;
     private String description;
-    private String status;
     private Date date;
-    private HR createdBy; // References HR ID
+    private String status;
+    private String note;
+    private HR createdBy;
     private Date createdDate;
-    private HR updatedBy; // References HR ID
+    private HR updatedBy;
     private Date updatedDate;
 }
