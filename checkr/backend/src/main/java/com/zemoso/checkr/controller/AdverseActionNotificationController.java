@@ -1,9 +1,7 @@
 package com.zemoso.checkr.controller;
 
-import com.zemoso.checkr.entity.AdverseAction;
 import com.zemoso.checkr.entity.AdverseActionNotification;
 import com.zemoso.checkr.repository.AdverseActionNotificationRepository;
-import com.zemoso.checkr.repository.AdverseActionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,5 @@
 package com.zemoso.checkr.controller;
 
-import com.zemoso.checkr.entity.Candidate;
 import com.zemoso.checkr.entity.HR;
 import com.zemoso.checkr.repository.HRRepository;
 import org.springframework.beans.factory.annotation.Autowired;

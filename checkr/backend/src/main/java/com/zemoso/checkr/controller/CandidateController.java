@@ -1,9 +1,7 @@
 package com.zemoso.checkr.controller;
 
 import com.zemoso.checkr.entity.Candidate;
-
 import com.zemoso.checkr.repository.CandidateRepository;
-import com.zemoso.checkr.repository.CaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +20,10 @@ public class CandidateController {
 
     @PostMapping
     public ResponseEntity<String> saveCandidate(@RequestBody Candidate candidate) {
-        Candidate savedCandidate = candidateRepository.save(candidate);
+       try{ candidateRepository.save(candidate);
         return ResponseEntity.ok("Successful");
+        }
+        catch(Exception ex) {  return ResponseEntity.badRequest().body("Error in processing");}
     }
 
     @GetMapping
