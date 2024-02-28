@@ -3,23 +3,25 @@ package com.zemoso.checkr.entity;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import jakarta.persistence.*;
 
 
 @Getter
 @Setter
+@Entity
 public class Case {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private Candidate candidateID; // References Candidate ID
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Candidate candidateID;
     private String description;
     private String status;
     private Date date;
+    @ManyToOne(fetch = FetchType.LAZY)
     private HR createdBy; // References HR ID
     private Date createdDate;
+    @ManyToOne(fetch = FetchType.LAZY)
     private HR updatedBy; // References HR ID
     private Date updatedDate;
 }

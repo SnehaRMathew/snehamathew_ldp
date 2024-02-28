@@ -3,16 +3,15 @@ package com.zemoso.checkr.entity;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import jakarta.persistence.*;
 
 
 @Getter
 @Setter
+@Entity
 public class HR {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private Date dateOfBirth;
@@ -21,5 +20,5 @@ public class HR {
     private String status;
     private String mobile;
     private String address;
-    
+
 }
