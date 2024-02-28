@@ -1,11 +1,11 @@
 package com.zemoso.checkr.controller;
 
+import com.zemoso.checkr.entity.Candidate;
 import com.zemoso.checkr.entity.HR;
 import com.zemoso.checkr.repository.HRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +23,16 @@ public class HRController {
     public List<HR> getAllHRs() {
         return hrRepository.findAll();
     }
+
+    @PostMapping
+    public ResponseEntity<String> saveHR(@RequestBody HR hr) {
+        try{
+            hrRepository.save(hr);
+            return ResponseEntity.ok("Successful");
+        }
+        catch(Exception ex)
+        {  return ResponseEntity.badRequest().body("Error in processing");}
+    }
+
+
 }

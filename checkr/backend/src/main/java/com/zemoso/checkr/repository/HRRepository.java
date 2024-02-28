@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HRRepository extends CrudRepository<HR, Long> {
     List<HR> findAll();
-    // You can add custom query methods here if needed
+
 }

@@ -2,12 +2,11 @@ package com.zemoso.checkr.entity;
 
 import java.util.Date;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.persistence.*;
 
-@Getter
-@Setter
-@Entity
+@Getter @Setter @Entity @NoArgsConstructor
 public class AdverseAction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

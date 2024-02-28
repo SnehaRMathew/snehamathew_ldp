@@ -2,6 +2,7 @@ package com.zemoso.checkr.entity;
 
 import java.util.Date;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.persistence.*;
 
@@ -9,6 +10,7 @@ import jakarta.persistence.*;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

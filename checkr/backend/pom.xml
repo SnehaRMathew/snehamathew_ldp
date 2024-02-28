@@ -49,7 +49,6 @@
 			<version>0.8.8</version>
 		</dependency>
 
-
 		<!-- JDBC Driver (e.g., MySQL) -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -62,6 +61,7 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.14.1</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
