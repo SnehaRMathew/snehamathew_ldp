@@ -1,27 +1,23 @@
 package com.zemoso.checkr.entity;
 
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.persistence.*;
 
 
-@Getter @Setter @Entity @NoArgsConstructor
+@Entity
+@Table(name = "user")
+@Getter @Setter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String name;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date dateOfBirth;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date dateOfJoining;
-    private String email;
-    private String status;
-    private String mobile;
-    private String address;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(name = "username", length = 50, nullable = false)
+    private String username;
+
+    @Column(name = "password", length = 40, nullable = false)
+    private String password;
 }
+

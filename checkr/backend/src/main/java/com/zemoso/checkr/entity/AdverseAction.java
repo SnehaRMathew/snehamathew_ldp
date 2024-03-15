@@ -1,27 +1,43 @@
 package com.zemoso.checkr.entity;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.persistence.*;
 
-@Getter @Setter @Entity @NoArgsConstructor
+@Getter @Entity @NoArgsConstructor
+@Table(name = "Adverse_Action")
 public class AdverseAction {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @OneToOne(fetch = FetchType.LAZY)
-    private Candidate candidateId;
-    private String description;
-    private Date date;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @OneToOne
+    @JoinColumn(name = "candidate_id")
+    private Candidate candidate;
+
+    @Column(name = "status", length = 50)
     private String status;
-    @OneToOne(fetch = FetchType.LAZY)
-    private AdverseActionNotification notificationId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private HR createdBy;
-    private Date createdDate;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private HR updatedBy;
-    private Date updatedDate;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date preNoticeDate;
+
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date postNoticeDate;
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setPreNoticeDate(Date preNoticeDate) {
+        this.preNoticeDate = preNoticeDate;
+    }
+
+    public void setPostNoticeDate(Date postNoticeDate) {
+        this.postNoticeDate = postNoticeDate;
+    }
 }

@@ -1,6 +1,6 @@
 package com.zemoso.checkr.enums;
 
-public enum Status {
+public enum CandidateStatus {
     CLEAR,
     CONSIDER
 }

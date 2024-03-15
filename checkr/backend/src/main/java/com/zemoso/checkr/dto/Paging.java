@@ -7,3 +7,4 @@ public class Paging {
     private Integer nextPage;
     private Integer prevPage;
 }
+
