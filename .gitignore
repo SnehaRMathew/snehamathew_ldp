@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+checkr/backend/.github/workflows/continuous-integration-build.yml
+
+
