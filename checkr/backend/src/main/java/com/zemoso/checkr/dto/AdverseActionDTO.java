@@ -1,21 +1,22 @@
 package com.zemoso.checkr.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.zemoso.checkr.enums.AdverseActionStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class AdverseAction {;
+import java.util.Date;
+@Data @NoArgsConstructor
+public class AdverseActionDTO {;
     private String name;
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private AdverseActionStatus status;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date preNoticeDate;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date postNoticeDate;
 
 
-    public enum Status {
-        PENDING, SCHEDULED, DISPUTE, CANCELLED, UNDELIVERABLE
-    }
 }

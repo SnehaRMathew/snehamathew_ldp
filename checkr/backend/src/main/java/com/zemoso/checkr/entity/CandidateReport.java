@@ -5,21 +5,22 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.zemoso.checkr.enums.AdjudicationType;
+import lombok.*;
 import jakarta.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
+@ToString
 @Table(name = "Candidate_Report")
 public class CandidateReport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @OneToOne(fetch=FetchType.EAGER)
-    @JoinColumn (name = "candidateId")
     private Candidate candidate;
 
     @Column(name = "status", length = 20)

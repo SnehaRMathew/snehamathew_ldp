@@ -1,6 +1,11 @@
 package com.zemoso.checkr.dto;
 
-public class Paging {
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public class PagingDTO {
     private Integer totalRecords;
     private Integer totalPages;
     private Integer currentPage;

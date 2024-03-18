@@ -3,11 +3,14 @@ package com.zemoso.checkr.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.ToString;
+import org.springframework.context.annotation.Lazy;
 
 import java.util.Date;
 
 @Entity
 @Getter
+@ToString
 @Table(name = "Court_Search")
 public class CourtSearch {
 
@@ -21,7 +24,7 @@ public class CourtSearch {
     @Column(name = "status", length = 50)
     private String status;
 
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.LAZY)
     private Candidate candidate; // Many-to-one relationship with Candidate
 
     @Column(name = "date")

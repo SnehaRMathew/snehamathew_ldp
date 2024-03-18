@@ -4,7 +4,7 @@ import com.zemoso.checkr.entity.User;
 
 import java.util.logging.Logger;
 
-public class UserDetailsNotSavedException extends Exception {
+public class UserDetailsNotSavedException extends RuntimeException {
     Logger LOGGER = Logger.getLogger(UserDetailsNotSavedException.class.getName());
     User user;
 

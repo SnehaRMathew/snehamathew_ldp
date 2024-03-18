@@ -68,26 +68,10 @@ public class CandidateController {
    }
 
 
-
-//    @GetMapping("/all")
-//    public ResponseEntity<List<CandidateReport>> getCandidates() {
-//        LOGGER.info("Get all Candidate");
-//        List<CandidateReport> candidateResult = candidateService.findAll();
-//        return ResponseEntity.ok(candidateResult);
-//    }
-
-//    @PostMapping ("/add")
-//    public ResponseEntity<String> saveCandidate(@RequestBody Candidate candidate) {
-//        LOGGER.info("Saving Candidate " +candidate);
-//        candidateService.save(candidate);
-//        ResponseEntity<String> successful = ResponseEntity.ok("Successful");
-//        return successful;
-//    }
-//
     @GetMapping("/{id}")
     public ResponseEntity<CandidateReportDTO> getCandidateById(@PathVariable Long id) throws NoSuchCandidateExistsException {
         LOGGER.info("Searching for Candidate " + id);
-        CandidateReportDTO candidate = candidateService.findById(id).orElseThrow(() -> new NoSuchCandidateExistsException(id));
-        return ResponseEntity.ok(candidate);
+        CandidateReportDTO candidateReportDTO = candidateService.findById(id);
+        return ResponseEntity.ok(candidateReportDTO);
     }
 }

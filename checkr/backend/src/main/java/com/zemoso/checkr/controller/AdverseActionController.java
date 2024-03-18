@@ -1,7 +1,8 @@
 package com.zemoso.checkr.controller;
 
-import com.zemoso.checkr.entity.AdverseAction;
+import com.zemoso.checkr.dto.AdverseActionDTO;
 import com.zemoso.checkr.repository.AdverseActionRepository;
+import com.zemoso.checkr.service.AdverseActionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +17,16 @@ import java.util.List;
 @Tag(name= "Adverse-Actions", description = "Operations that are related to adverse Action Notification")
 public class AdverseActionController {
 
-    private final AdverseActionRepository adverseActionRepository;
+    private final AdverseActionService adverseActionService;
 
     @Autowired
-    public AdverseActionController(AdverseActionRepository adverseActionRepository) {
-        this.adverseActionRepository = adverseActionRepository;
+    public AdverseActionController(AdverseActionService adverseActionService) {
+        this.adverseActionService = adverseActionService;
     }
 
     @GetMapping
     @Operation(summary = "Get all adverse action that were send to the candidates")
-    public List<AdverseAction> getAllHRs() {
-        return adverseActionRepository.findAll();
+    public List<AdverseActionDTO> getAllAdverseActions() {
+        return adverseActionService.findAll();
     }
 }
