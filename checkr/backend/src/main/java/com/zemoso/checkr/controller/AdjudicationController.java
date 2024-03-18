@@ -24,8 +24,7 @@ public class AdjudicationController {
 
     @PutMapping ("{id}/AdverseAction")
     public String adverseActionCandidate(@PathVariable long id, @RequestParam(name="days") int days, @RequestBody List<SearchChargeDTO> searchChargeDTOList) throws NoSuchCandidateExistsException {
-        System.out.println(days+"    sdasd  0"+searchChargeDTOList);
-        return candidateReportService.sendAdverseAction(id,days, searchChargeDTOList);
+       return candidateReportService.sendAdverseAction(id,days, searchChargeDTOList);
     }
 
     @GetMapping("{id}/AdverseCharges")
