@@ -8,7 +8,9 @@ import lombok.*;
 import jakarta.persistence.*;
 
 
-@Getter
+@Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
@@ -19,7 +21,6 @@ public class Candidate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Setter
     @Column(length = 20, nullable = false)
     private String name;
 

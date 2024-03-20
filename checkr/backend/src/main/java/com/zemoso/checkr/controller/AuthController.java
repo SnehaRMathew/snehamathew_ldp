@@ -3,7 +3,7 @@ package com.zemoso.checkr.controller;
 import com.zemoso.checkr.exception.InvalidCredentialsException;
 import com.zemoso.checkr.model.AuthenticationRequest;
 import com.zemoso.checkr.model.AuthenticationResponse;
-import com.zemoso.checkr.service.TokenEncodeService;
+import com.zemoso.checkr.service.impl.TokenEncodeServiceiImp;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -22,14 +22,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 @Tag(name="AuthController")
 public class AuthController {
-    private final TokenEncodeService tokenEncodeService;
-
-    @Autowired
+    private final TokenEncodeServiceiImp tokenEncodeServiceiImp;
     AuthenticationManager authenticationManager;
 
-
-    public AuthController(TokenEncodeService tokenEncodeService) {
-        this.tokenEncodeService = tokenEncodeService;
+    @Autowired
+    public AuthController(TokenEncodeServiceiImp tokenEncodeServiceiImp, AuthenticationManager authenticationManager) {
+        this.tokenEncodeServiceiImp = tokenEncodeServiceiImp;
+        this.authenticationManager = authenticationManager;
     }
 
     @Operation(summary = "Generate Token", description = "Token generated", responses = {
@@ -44,7 +43,7 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(authenticationrequest.getUsername(), authenticationrequest.getPassword()));
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            String token = tokenEncodeService.generateToken(authentication);
+            String token = tokenEncodeServiceiImp.generateToken(authentication);
             HttpHeaders headers = new HttpHeaders();
             headers.add("Authorization", "Bearer " + token);
             return ResponseEntity.ok().headers(headers).body(new AuthenticationResponse(token));
@@ -59,7 +58,7 @@ public class AuthController {
             @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))) })
     @PostMapping("/token")
     public String token(Authentication authentication){
-        return tokenEncodeService.generateToken(authentication);
+        return tokenEncodeServiceiImp.generateToken(authentication);
     }
     @PostMapping("/logout")
     public String logout() {

@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    private final static Logger LOGGER = Logger.getLogger(CandidateController.class.getName());
+    private final  Logger LOGGER = Logger.getLogger(CandidateController.class.getName());
     @ExceptionHandler(value
             = NoSuchCandidateExistsException.class)
     public ResponseEntity<Object> noSuchCandidateExists(NoSuchCandidateExistsException ex) {

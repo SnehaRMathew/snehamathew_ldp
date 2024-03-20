@@ -1,7 +1,6 @@
 package com.zemoso.checkr.repository;
 
 import com.zemoso.checkr.entity.CourtSearch;
-import com.zemoso.checkr.exception.NoSuchCandidateExistsException;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

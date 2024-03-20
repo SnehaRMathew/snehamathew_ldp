@@ -1,12 +1,14 @@
 package com.zemoso.checkr.entity;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zemoso.checkr.enums.AdverseActionStatus;
-import lombok.*;
 import jakarta.persistence.*;
-import org.springframework.data.repository.cdi.Eager;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 @Data @Entity @NoArgsConstructor
 @Builder @AllArgsConstructor

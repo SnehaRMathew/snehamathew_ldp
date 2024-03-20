@@ -7,7 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
-
-    //Page<CandidateReport> findByNameAndStatus(Pageable pageable, String name, String status);
     Page<Candidate> findByName(Pageable pageable, String name);
 }

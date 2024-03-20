@@ -1,20 +1,19 @@
 package com.zemoso.checkr.entity;
-import java.util.Date;
-
-import java.time.LocalDateTime;
-import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.zemoso.checkr.enums.AdjudicationType;
-import lombok.*;
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Date;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Table(name = "Candidate_Report")
-public class CandidateReport {
+public class CandidateDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

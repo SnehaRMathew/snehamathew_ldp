@@ -1,27 +1,27 @@
 package com.zemoso.checkr.token;
 
 
-import com.zemoso.checkr.service.TokenDecodeService;
-import com.zemoso.checkr.service.TokenEncodeService;
+import com.zemoso.checkr.service.impl.TokenDecodeServiceImp;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.GenericFilterBean;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Component
 public class TokenFilter extends GenericFilterBean {
 
-    private final TokenDecodeService tokenDecodeService;
-    public TokenFilter(TokenDecodeService tokenDecodeService){
-        this.tokenDecodeService = tokenDecodeService;
+    private final TokenDecodeServiceImp tokenDecodeServiceImp;
+    Logger logger=Logger.getLogger(TokenFilter.class.getName());
+    public TokenFilter(TokenDecodeServiceImp tokenDecodeServiceImp){
+        this.tokenDecodeServiceImp = tokenDecodeServiceImp;
     }
 
     private String extractToken(HttpServletRequest request) {
@@ -29,16 +29,16 @@ public class TokenFilter extends GenericFilterBean {
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
             return bearerToken.substring(7);
         }
-        return new String();
+        return "";
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         String token = extractToken((HttpServletRequest)servletRequest);
-        System.out.println("I reached here" +token);
+        logger.log(Level.INFO,"I reached here" +token);
         if (!token.isEmpty()) {
             // Authentication authentication =
-            tokenDecodeService.getUsernameFromToken(token);
+            tokenDecodeServiceImp.getUsernameFromToken(token);
             //SecurityContextHolder.getContext().setAuthentication(authentication);
 
         }

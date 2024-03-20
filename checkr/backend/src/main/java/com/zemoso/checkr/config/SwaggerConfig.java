@@ -3,12 +3,14 @@ package com.zemoso.checkr.config;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.logging.Logger;
+
 @Configuration
 public class SwaggerConfig {
+    private  static Logger LOGGER = Logger.getLogger(SwaggerConfig.class.getName());
     @Bean
     public OpenAPI springShopOpenAPI() {
         return new OpenAPI()

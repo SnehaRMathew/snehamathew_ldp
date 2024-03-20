@@ -2,14 +2,14 @@ package com.zemoso.checkr.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.ToString;
-import org.springframework.context.annotation.Lazy;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
-@Getter
+@Data
+@Builder
+@AllArgsConstructor
 @ToString
 @Table(name = "Court_Search")
 public class CourtSearch {

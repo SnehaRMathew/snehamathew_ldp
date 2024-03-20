@@ -1,15 +1,18 @@
 package com.zemoso.checkr.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 import java.util.List;
 
-@Data @NoArgsConstructor
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CandidateReportDTO {
     private CandidateDTO candidate;
-    private ReportDTO report;
+    private CandidateDetailDTO report;
     private List<CourtSearchDTO> courtSearch;
 }
