@@ -3,8 +3,7 @@ package com.mycompany.fileuploadsearch.dto;
 import lombok.Builder;
 import lombok.Data;
 
-@Data
-@Builder
+@Data @Builder
 public class PaginationDTO {
     private Integer pageSize;
     private Integer currentPage;
