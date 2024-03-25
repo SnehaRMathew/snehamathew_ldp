@@ -2,7 +2,6 @@ package com.mycompany.fileuploadsearch.dto;
 
 import com.mycompany.fileuploadsearch.enums.FileType;
 import com.mycompany.fileuploadsearch.enums.PublishBy;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
