@@ -1,6 +1,7 @@
 package com.mycompany.fileuploadsearch.entity;
 
 import com.mycompany.fileuploadsearch.enums.ActionType;
+import jakarta.json.Json;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,8 +20,8 @@ public class FileAudit {
     private Long id;
     @Enumerated(EnumType.STRING)
     private ActionType action;
-    private String oldData;
-    private String newData;
+    private Json oldData;
+    private Json newData;
     private LocalDateTime auditDate;
     @ManyToOne
     private File file;
