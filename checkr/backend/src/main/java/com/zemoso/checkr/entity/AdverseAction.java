@@ -1,27 +1,34 @@
 package com.zemoso.checkr.entity;
 
-import java.util.Date;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.zemoso.checkr.enums.AdverseActionStatus;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter @Setter @Entity @NoArgsConstructor
+import java.util.Date;
+
+@Data @Entity @NoArgsConstructor
+@Builder @AllArgsConstructor
+@Table(name = "Adverse_Action")
 public class AdverseAction {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @OneToOne(fetch = FetchType.LAZY)
-    private Candidate candidateId;
-    private String description;
-    private Date date;
-    private String status;
-    @OneToOne(fetch = FetchType.LAZY)
-    private AdverseActionNotification notificationId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private HR createdBy;
-    private Date createdDate;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private HR updatedBy;
-    private Date updatedDate;
+    private Candidate candidate;
+
+    @Column(name = "status", length = 50)
+    @Enumerated(EnumType.STRING)
+    private AdverseActionStatus status;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date preNoticeDate;
+
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date postNoticeDate;
 }

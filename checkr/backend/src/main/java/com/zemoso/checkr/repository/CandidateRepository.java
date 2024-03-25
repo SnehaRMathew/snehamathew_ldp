@@ -1,12 +1,11 @@
 package com.zemoso.checkr.repository;
 
 import com.zemoso.checkr.entity.Candidate;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 
-
-public interface CandidateRepository extends CrudRepository<Candidate, Long> {
-    List<Candidate> findAll();
-    Candidate getById(Long id);
+public interface CandidateRepository extends JpaRepository<Candidate, Long> {
+    Page<Candidate> findByName(Pageable pageable, String name);
 }

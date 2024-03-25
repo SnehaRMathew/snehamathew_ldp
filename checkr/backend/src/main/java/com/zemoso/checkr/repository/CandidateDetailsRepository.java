@@ -1,0 +1,11 @@
+package com.zemoso.checkr.repository;
+
+import com.zemoso.checkr.entity.CandidateDetails;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface CandidateDetailsRepository extends JpaRepository<CandidateDetails, Long> {
+    Optional<CandidateDetails> findByCandidateId(Long id);
+
+}
